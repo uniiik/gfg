@@ -1,0 +1,26 @@
+
+class Solution{
+    public:
+    // arr : given array
+    // l : starting index of the array i.e 0
+    // r : ending index of the array i.e size-1
+    // k : find kth smallest element and return using this function
+    //we will use priority queue(priority queue works on  heap ) for finding smallest element as we are using maxHeap in this so we will only take 3 elements
+    //in the heap or queue and whenever the element number become more than k then we will pop out the max element so by 
+    //by doing this way in last we will get min kth element
+    int kthSmallest(int arr[], int l, int r, int k) {
+        priority_queue<int> maxHeap;
+        for(int i=0;i<=r;i++)
+        {
+            maxHeap.push(arr[i]);
+            if(maxHeap.size()>k)
+            {
+                maxHeap.pop();
+            }
+        }
+        
+        return maxHeap.top();
+     
+     
+    }
+};
